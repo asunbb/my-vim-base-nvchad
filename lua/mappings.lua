@@ -8,6 +8,9 @@ keymap("i", "jk", "<ESC>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
+-- nvchad.ui 默认使用 tab/shift+tab 切换标签页
+-- ...
+
 -- 是否 neovim 运行在 neovide 中
 ---@type boolean|nil
 local is_neovide = vim.g.neovide
