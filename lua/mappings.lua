@@ -12,6 +12,7 @@ keymap("i", "jk", "<ESC>")
 ---@type boolean|nil
 local is_neovide = vim.g.neovide
 if is_neovide then
+  -- 使用 ctrl+-/ctrl+= 改变全局渲染缩放
   keymap({ "n", "v" }, "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
   keymap({ "n", "v" }, "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
 end
