@@ -36,10 +36,21 @@ end
 keymap("n", "<Leader>ge", goto_next_error, {desc = "[diagnostic] goto next error"})
 keymap("n", "<Leader>gw", goto_next_warning, {desc = "[diagnostic] goto next warning"})
 
--- 代码注释相关快捷键 (ai辅助总结)
+-- ======================== 代码注释相关快捷键 (ai辅助总结)
 -- neovim 内置功能如下，参考文件 vim/_defeault.lua
 --   普通模式下的 gcc 注释行
 --   视图模式下 gc 注释选中区域
 --   使用 :verbose map gc 查看
 -- NvChad 重映射改造，参考文件 nvchad/lua/mappings.lua
 --   普通视图模式，<leader>/ 注释代码
+
+--[[ ======================== 代码格式化相关快捷键 (ai辅助总结)
+当前 nvchad 默认配置：
+  map({ "n", "x" }, "<leader>fm", function()
+      require("conform").format { lsp_fallback = true }
+    end, { desc = "general format file" })
+normal模式(n)和 visual模式(x)下，按键 <leader>fm 格式化整个文件或者选中代码块。
+使用 conform.nvim 插件功能，不可用则回退到 lsp 格式化。
+conform.nvim 使用配置 lua/configs/conform.lua，其中使用的具体格式化器是 stylua。（代码转包:))
+]]--
+
