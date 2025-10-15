@@ -5,6 +5,21 @@ return {
     opts = require "configs.conform",
   },
 
+  -- nvim-tree 配置
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      filters = {
+        -- 显示重要的配置文件，比如 .gitignore、.env 等
+        dotfiles = false,
+        custom = { 
+          "*.meta", 
+          "*.tmp",
+        },
+      }
+    }
+  },
+
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
