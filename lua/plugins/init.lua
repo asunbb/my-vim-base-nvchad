@@ -28,6 +28,13 @@ return {
     end,
   },
 
+  {
+    "seblyng/roslyn.nvim",
+    opts = {
+        -- your configuration comes here; leave empty for default settings
+    },
+  },
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
