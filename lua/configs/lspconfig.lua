@@ -8,6 +8,9 @@ vim.lsp.enable(servers)
 ---------------------------------------- asunbb 自定义
 local vim_lsp = vim.lsp
 local vim_api = vim.api
+local vim_uv = vim.uv or vim.loop
+local vim_fs = vim.fs
+
 ---@type string
 local name_lua_ls = "lua_ls"
 ---@type string
@@ -33,8 +36,6 @@ vim_api.nvim_create_autocmd('LspAttach', {
     end
 })
 
-local uv = vim.uv or vim.loop
-local fs = vim.fs
 ---@type boolean @是否使用官方 nvim-lspconfig 实现
 local roslyn_lspconfig = false
 
@@ -49,11 +50,12 @@ if roslyn_lspconfig then
             '--logLevel',
             'Information',
             '--extensionLogDirectory',
-            fs.joinpath(uv.os_tmpdir(), 'roslyn_ls/logs'),
+            vim_fs.joinpath(vim_uv.os_tmpdir(), 'roslyn_ls/logs'),
             '--stdio',
         },
     })
     vim_lsp.enable("roslyn_ls")
 else
+    -- 第三方插件实现 seblyng.roslyn
     require "roslyn"
 end
